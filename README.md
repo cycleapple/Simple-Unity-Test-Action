@@ -7,10 +7,11 @@ automates the process of executing tests, capturing the test results, and upload
 
 ## Features:
 
-- Supports running Unity Play Mode tests.
-- Supports running Unity Editor Mode tests.
+- Running Unity Play Mode tests.
+- Running Unity Editor Mode tests.
 - Captures test results and logs for both Play Mode and Editor Mode tests.
 - Uploads the test results as artifacts, making it easy to access and analyze the test outcomes.
+- Test result artifact named`TestResult-PlayMode.xml` and `TestResult-EditMode.xml `
 
 ## Usage:
 
