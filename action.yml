@@ -29,3 +29,7 @@ runs:
         path: |
           TestResult-PlayMode.xml
           TestResult-EditMode.xml
+      
+branding:
+  icon: 'arrow-up-circle'
+  color: 'gray-dark'          
