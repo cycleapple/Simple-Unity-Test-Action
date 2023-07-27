@@ -1,0 +1,29 @@
+name: 'Simple Unity Test'
+description: 'Run Unity Play Mode and Editor Mode Tests'
+
+inputs:
+  unityPath:
+    description: 'The full path to the Unity executable.'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Unity Play Mode Test
+      shell: cmd
+      run: |
+        "${{ inputs.unityPath }}" -batchmode -projectPath . -runTests -testPlatform PlayMode -testResults TestResult-PlayMode.xml -logFile -
+
+    - name: Unity Editor Mode Test
+      shell: cmd
+      run: |
+        "${{ inputs.unityPath }}" -batchmode -projectPath . -runTests -testPlatform EditMode -testResults TestResult-EditMode.xml -logFile -
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: Upload Test Results
+        path: "*.xml"
