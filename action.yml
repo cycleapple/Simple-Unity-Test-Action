@@ -25,5 +25,7 @@ runs:
     - name: Upload Test Results
       uses: actions/upload-artifact@v3
       with:
-        name: Upload Test Results
-        path: "*.xml"
+        name: Test Results
+        path: |
+          TestResult-PlayMode.xml
+          TestResult-EditMode.xml
