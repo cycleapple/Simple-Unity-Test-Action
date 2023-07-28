@@ -45,7 +45,7 @@ runs:
       if: always()  # Always run this step, regardless of previous step status.
       shell: cmd
       run: |
-        rm -f "TestResult-PlayMode.xml" "TestResult-EditMode.xml"
+        del "TestResult-PlayMode.xml" "TestResult-EditMode.xml"
 
 branding:
   icon: 'arrow-up-circle'
