@@ -27,10 +27,10 @@ runs:
     - name: Check if XML Test Results Exist
       shell: cmd
       run: |
-        if [ ! -f "TestResult-PlayMode.xml" ] || [ ! -f "TestResult-EditMode.xml" ]; then
-          echo "One or both XML test result files are missing."
-          exit 1
-        fi
+        if not exist "TestResult-PlayMode.xml" if not exist "TestResult-EditMode.xml" (
+        echo One or both XML test result files are missing.
+        exit /b 1
+        )
 
     - name: Upload Test Results
       if: success()  # Only run this step if the previous steps were successful.
