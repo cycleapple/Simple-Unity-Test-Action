@@ -25,6 +25,7 @@ runs:
         "${{ inputs.unityPath }}" -batchmode -projectPath ${{ inputs.projectPath }} -runTests -testPlatform EditMode -testResults TestResult-EditMode.xml -logFile -
 
     - name: Check if XML Test Results Exist
+      if: always()
       shell: cmd
       run: |
         if not exist "TestResult-PlayMode.xml" if not exist "TestResult-EditMode.xml" (
@@ -42,7 +43,7 @@ runs:
           TestResult-EditMode.xml
 
     - name: Delete XML Test Results
-      if: always()  # Always run this step, regardless of previous step status.
+      if: success()  # Always run this step, regardless of previous step status.
       shell: cmd
       run: |
         del "TestResult-PlayMode.xml" "TestResult-EditMode.xml"
