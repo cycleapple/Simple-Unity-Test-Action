@@ -34,7 +34,7 @@ runs:
           TestResult-EditMode.xml
 
     - name: Delete XML Test Results
-      if: success()  # Always run this step, regardless of previous step status.
+      if: always()   
       shell: cmd
       run: |
         del "TestResult-PlayMode.xml" "TestResult-EditMode.xml"
